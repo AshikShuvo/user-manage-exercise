@@ -39,6 +39,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiO
   "address": "Nikunja 2, Dhaka"
 }
 
+### update profile
+
+PUT http://localhost:3000/profile
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhc2hpazFAZ21haWwuY29tIiwiaWF0IjoxNzA3NjQxNTg1LCJleHAiOjE3MDc2Nzc1ODV9.cUGB7kHkKudMS-MT_9HknC7-q-8MdQD-ji7WLX3--VQ
+
+{
+"phoneNumber": "+8801730959602"
+}
+
 ### get my Profile
 GET http://localhost:3000/profile
 content-type: application/json
