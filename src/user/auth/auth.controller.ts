@@ -1,8 +1,9 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { CreateUserDto } from '../dtos/createUser.dto';
 import { AuthService } from './auth.service';
 import { SigninUserDto } from '../dtos/signinUser.dto';
 import { User } from '../../decorators/user.decorator';
+import { Authenticated } from '../../guards/auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -19,6 +20,7 @@ export class AuthController {
   }
 
   @Get()
+  @UseGuards(Authenticated)
   checkMe(@User() data: { id: string; email: string }) {
     console.log(data);
     return data;
