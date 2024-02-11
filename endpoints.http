@@ -1,0 +1,27 @@
+### Auth apis
+
+### sign up user
+
+POST http://localhost:3000/auth/signup
+content-type: application/json
+
+{
+  "email": "ashik1@gmail.com",
+  "password": "12345637"
+}
+
+### sign in user
+
+POST http://localhost:3000/auth/signin
+content-type: application/json
+
+{
+"email": "ashik1@gmail.com",
+"password": "12345637"
+}
+
+
+###check me
+GET http://localhost:3000/auth
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhc2hpazFAZ21haWwuY29tIiwiaWF0IjoxNzA3NjQxNTg1LCJleHAiOjE3MDc2Nzc1ODV9.cUGB7kHkKudMS-MT_9HknC7-q-8MdQD-ji7WLX3--VQ
