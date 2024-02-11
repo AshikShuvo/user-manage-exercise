@@ -1,0 +1,21 @@
+### Auth apis
+
+### sign up user
+
+POST http://localhost:3000/auth/signup
+content-type: application/json
+
+{
+  "email": "ashik1@gmail.com",
+  "password": "12345637"
+}
+
+### sign in user
+
+POST http://localhost:3000/auth/signin
+content-type: application/json
+
+{
+"email": "ashik1@gmail.com",
+"password": "12345637"
+}
