@@ -24,7 +24,12 @@ content-type: application/json
 ###check me
 GET http://localhost:3000/auth
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhc2hpazFAZ21haWwuY29tIiwiaWF0IjoxNzA3NjQxNTg1LCJleHAiOjE3MDc2Nzc1ODV9.cUGB7kHkKudMS-MT_9HknC7-q-8MdQD-ji7WLX3--VQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhc2hpazFAZ21haWwuY29tIiwiaWF0IjoxNzA3NzE1OTA2LCJleHAiOjE3MDc3NTE5MDZ9.kaEVNBcwT_diuaTDNtpBBTH6M9fFaqStYB70ybdZjMQ
+
+### get all users with profile
+GET http://localhost:3000/user
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhc2hpazFAZ21haWwuY29tIiwiaWF0IjoxNzA3NzE1OTA2LCJleHAiOjE3MDc3NTE5MDZ9.kaEVNBcwT_diuaTDNtpBBTH6M9fFaqStYB70ybdZjMQ
 
 
 ### create profile
