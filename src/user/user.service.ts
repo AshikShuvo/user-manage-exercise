@@ -2,6 +2,7 @@ import { ConflictException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dtos/createUser.dto';
 import * as bcrypt from 'bcryptjs';
+import { UserResponseDto } from './dtos/userResponse.dto';
 
 @Injectable()
 export class UserService {
@@ -30,9 +31,14 @@ export class UserService {
   }
 
   async findOneByEmail(email: string) {
-    const user= await this.prismaService.user.findUnique({ where: { email } });
+    const user = await this.prismaService.user.findUnique({ where: { email } });
     return user;
   }
 
-  findMany() {}
+  async getAllUsersWithProfile() {
+    const users = await this.prismaService.user.findMany({
+      include: { profile: true },
+    });
+    return users.map((user) => new UserResponseDto(user));
+  }
 }

@@ -16,8 +16,11 @@ export class Authenticated implements CanActivate {
   }
 
   private verifyToken(token: string) {
-    const payload = jwt.verify(token, process.env.JWT_TOKEN_KEY);
-
-    return !!payload;
+    try {
+      const payload = jwt.verify(token, process.env.JWT_TOKEN_KEY);
+      return !!payload;
+    } catch {
+      return false;
+    }
   }
 }
