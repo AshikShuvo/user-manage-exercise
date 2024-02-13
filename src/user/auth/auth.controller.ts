@@ -1,10 +1,9 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { CreateUserDto } from '../dtos/createUser.dto';
 import { AuthService } from './auth.service';
 import { SigninUserDto } from '../dtos/signinUser.dto';
-import { User } from '../../decorators/user.decorator';
-import { Authenticated } from '../../guards/auth.guard';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { AuthResponseDto } from '../dtos/authResponse.dto';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -12,19 +11,30 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('/signup')
-  signUpUser(@Body() data: CreateUserDto) {
+  @ApiResponse({
+    status: 201,
+    description: 'The record has been successfully created.',
+  })
+  @ApiResponse({ status: 401, description: 'credential dose not match' })
+  @ApiBody({
+    type: CreateUserDto,
+    description: 'Json structure for user object',
+  })
+  signUpUser(@Body() data: CreateUserDto): Promise<AuthResponseDto> {
     return this.authService.signUpUser(data);
   }
 
   @Post('/signin')
-  signinUser(@Body() data: SigninUserDto) {
+  @ApiResponse({
+    status: 201,
+    description: 'The record has been successfully created.',
+  })
+  @ApiResponse({ status: 401, description: 'credential dose not match' })
+  @ApiBody({
+    type: CreateUserDto,
+    description: 'Json structure for user object',
+  })
+  signinUser(@Body() data: SigninUserDto): Promise<AuthResponseDto> {
     return this.authService.signinUser(data);
-  }
-
-  @Get()
-  @UseGuards(Authenticated)
-  checkMe(@User() data: { id: string; email: string }) {
-    console.log(data);
-    return data;
   }
 }
