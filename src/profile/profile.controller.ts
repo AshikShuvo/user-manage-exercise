@@ -4,7 +4,9 @@ import { ProfileService } from './profile.service';
 import { CreateProfileDto } from './dtos/createProfile.dto';
 import { UpdateProfileDto } from './dtos/updateProfile.dto';
 import { Authenticated } from '../guards/auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Profile')
 @Controller('profile')
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
